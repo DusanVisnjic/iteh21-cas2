@@ -53,7 +53,7 @@
                     <td><?php echo $red["predmet"] ?></td>
                     <td><?php echo $red["katedra"] ?></td>
                     <td><?php echo $red["sala"] ?></td>
-                    <td><?php echo $red["datum"] ?></td>
+                    <td><?php echo $red["datum Kolokvijuma"] ?></td>
                     <td>
                         <label class="custom-radio-btn">
                             <input type="radio" name="checked-donut" value=<?php echo $red["id"] ?>>
@@ -200,3 +200,4 @@
 
 </body>
 </html>
+            
