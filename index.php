@@ -1,3 +1,37 @@
+<?php
+require "model/user.php";
+require "dbBroker.php";
+session_start();
+
+if(isset($_POST['username'])&&($_POST['password']))
+{
+    $uname=$_POST['username'];
+    $upass=$_POST['password'];
+
+    $conn=new mysqli();
+
+    $korisnik=new User(null,$uname,$upass);
+
+    //$odgovor=$korisnik->logInUser($uname,$upass, mysqli);
+    $odg= User::logInUser($korisnik,$conn);//pristu[ statickim fuckijama preko klasa]
+
+    if($odg->num_rows==1){
+        echo 'Uspesno ste se ulogovali';
+        
+        
+        
+        $_SESSION['user_id']=$korisnik->id;
+        header('Location: home.php');
+        exit();
+    }else{
+        echo 'Niste se prijavili!';
+    
+        
+    }
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
